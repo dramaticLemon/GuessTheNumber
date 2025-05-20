@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class GuessNumber {
     int live = 5;
-    private final int range = 100;
+    private final int endRange = 101;
     Scanner scanner = new Scanner(System.in);
 
     public void game(int guessNumber) {
-        System.out.println("WELCOME TO THE GAME !\nGuess the number 0 to " + range);
+        System.out.println("WELCOME TO THE GAME !\nGuess the number 0 to " + endRange);
         while (live > 0) {
             int inputInteger = getUserInput(scanner);
 
@@ -36,7 +36,7 @@ public class GuessNumber {
 
     public int getNumber() {
         Random randomEngine = new Random();
-        return randomEngine.nextInt(range);
+        return randomEngine.nextInt(endRange);
     }
 
     private int getUserInput (Scanner scanner) {
