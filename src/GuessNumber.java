@@ -6,7 +6,8 @@ public class GuessNumber {
     private final int endRange = 101;
     Scanner scanner = new Scanner(System.in);
 
-    public void game(int guessNumber) {
+    public void game() {
+        int guessNumber = getNumber();
         System.out.println("WELCOME TO THE GAME !\nGuess the number 0 to " + endRange);
         while (live > 0) {
             int inputInteger = getUserInput(scanner);
@@ -17,13 +18,13 @@ public class GuessNumber {
                 return;
             } else {
                 if (live == 1) {
-                    System.out.println("Didn't guess");
+                    System.out.println("Didn't guess.");
                 } else {
                     System.out.print("Didn't guess, try again, ");
                     if (inputInteger > guessNumber) {
-                        System.out.println("your number large.");
+                        System.out.println("you number > guess number.");
                     } else {
-                        System.out.println("you number less.");
+                        System.out.println("you number < guess number.");
                     }
                 }
             }
@@ -34,7 +35,7 @@ public class GuessNumber {
         scanner.close();
     }
 
-    public int getNumber() {
+    private int getNumber() {
         Random randomEngine = new Random();
         return randomEngine.nextInt(endRange);
     }
